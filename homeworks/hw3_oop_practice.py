@@ -185,10 +185,10 @@ if __name__ == '__main__':
     realtor_sam.steal_money()
     john.buy_house(house3, realtor_sam)
 
-# realtor_sam.house_info()
-# realtor_sam.give_discount(house4)
-# realtor_sam.steal_money()
-# anna.buy_house(house4, realtor_sam)
+    # realtor_sam.house_info()
+    # realtor_sam.give_discount(house4)
+    # realtor_sam.steal_money()
+    # anna.buy_house(house4, realtor_sam)
 
 # output:
 # My name is Anna, and i am 45 years old.
