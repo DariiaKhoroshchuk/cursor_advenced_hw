@@ -41,10 +41,10 @@ class Human(Person):
               f'I have {self.money}$.')
         if len(self.own_home) >= 1:
             print(f'I have such real estate: {[home.address for home in self.own_home]}\n')
-            for my_home in self.own_home:
-                for home in realtor.all_houses:
-                    if my_home == home:
-                        realtor.all_houses.remove(home)
+            # for my_home in self.own_home:
+            #     for home in realtor.all_houses:
+            #         if my_home == home:
+            #             realtor.all_houses.remove(home)
         else:
             print('I do not have any real estate.\n')
 
@@ -136,10 +136,10 @@ class Realtor(metaclass=RealtorSingleton):
         self.discount = discount
         self.all_houses = all_houses
 
-    def house_info(self):
-        # for house in self.all_houses:
-        #     if house in list(self.clients.own_home):
-        #         self.all_houses.remove(house)
+    def house_info(self, clients):
+        for house in self.all_houses:
+            if house in list(clients.own_home):
+                self.all_houses.remove(house)
         print(f'Realtor {self.name} can offer such houses:')
         for house in self.all_houses:
             print(f'* {house.__class__.__name__} at {house.address} with {house.area}sq.m '
@@ -174,13 +174,13 @@ if __name__ == '__main__':
     realtor_sam = Realtor('Sam', True, all_houses=[house1, house2, house3, house4])
 
     anna.info(realtor_sam)
-    realtor_sam.house_info()
+    realtor_sam.house_info(anna)
     realtor_sam.give_discount(house2)
     realtor_sam.steal_money()
     anna.buy_house(house2, realtor_sam)
 
     john.info(realtor_sam)
-    realtor_sam.house_info()
+    realtor_sam.house_info(john)
     realtor_sam.give_discount(house3)
     realtor_sam.steal_money()
     john.buy_house(house3, realtor_sam)
