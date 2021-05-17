@@ -162,27 +162,28 @@ class Realtor(metaclass=RealtorSingleton):
         self.all_houses.remove(house)
 
 
-house1 = Home('Shevchenka, 5', 150, 35000)
-house2 = Home('Karmelyuka, 14', 100, 30000)
-house3 = SmallTypicalHouse('Gagarina, 6', 20000)
-house4 = Home('Zelena, 34', 80, 27000)
+if __name__ == '__main__':
+    house1 = Home('Shevchenka, 5', 150, 35000)
+    house2 = Home('Karmelyuka, 14', 100, 30000)
+    house3 = SmallTypicalHouse('Gagarina, 6', 20000)
+    house4 = Home('Zelena, 34', 80, 27000)
 
-anna = Human('Anna', 45, 40000, [house1])
-john = Human('John', 23, 18000)
+    anna = Human('Anna', 45, 40000, [house1])
+    john = Human('John', 23, 18000)
 
-realtor_sam = Realtor('Sam', True, all_houses=[house1, house2, house3, house4])
+    realtor_sam = Realtor('Sam', True, all_houses=[house1, house2, house3, house4])
 
-anna.info(realtor_sam)
-realtor_sam.house_info()
-realtor_sam.give_discount(house2)
-realtor_sam.steal_money()
-anna.buy_house(house2, realtor_sam)
+    anna.info(realtor_sam)
+    realtor_sam.house_info()
+    realtor_sam.give_discount(house2)
+    realtor_sam.steal_money()
+    anna.buy_house(house2, realtor_sam)
 
-john.info(realtor_sam)
-realtor_sam.house_info()
-realtor_sam.give_discount(house3)
-realtor_sam.steal_money()
-john.buy_house(house3, realtor_sam)
+    john.info(realtor_sam)
+    realtor_sam.house_info()
+    realtor_sam.give_discount(house3)
+    realtor_sam.steal_money()
+    john.buy_house(house3, realtor_sam)
 
 # realtor_sam.house_info()
 # realtor_sam.give_discount(house4)
