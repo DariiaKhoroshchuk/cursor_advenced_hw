@@ -1,5 +1,5 @@
 import pytest
-from homeworks.hw4_tests.hw4_tests_calc import add, subtract, multiply, divide
+from calculator import add, subtract, multiply, divide
 
 
 def test_add():
