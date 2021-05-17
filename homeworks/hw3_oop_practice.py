@@ -19,7 +19,7 @@ class Person(ABC):
         self.own_home = own_home
 
     @abstractmethod
-    def info(self, realtor):
+    def info(self):
         raise NotImplementedError
 
     @abstractmethod
@@ -36,7 +36,7 @@ class Person(ABC):
 # 3. Buy a house
 
 class Human(Person):
-    def info(self, realtor):
+    def info(self):
         print(f'My name is {self.name}, and i am {self.age} years old.\n'
               f'I have {self.money}$.')
         if len(self.own_home) >= 1:
@@ -173,19 +173,19 @@ if __name__ == '__main__':
 
     realtor_sam = Realtor('Sam', True, all_houses=[house1, house2, house3, house4])
 
-    anna.info(realtor_sam)
+    anna.info()
     realtor_sam.house_info(anna)
     realtor_sam.give_discount(house2)
     realtor_sam.steal_money()
     anna.buy_house(house2, realtor_sam)
 
-    john.info(realtor_sam)
+    john.info()
     realtor_sam.house_info(john)
     realtor_sam.give_discount(house3)
     realtor_sam.steal_money()
     john.buy_house(house3, realtor_sam)
 
-    # realtor_sam.house_info()
+    # realtor_sam.house_info(anna)
     # realtor_sam.give_discount(house4)
     # realtor_sam.steal_money()
     # anna.buy_house(house4, realtor_sam)
